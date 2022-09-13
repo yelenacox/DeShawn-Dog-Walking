@@ -4,7 +4,7 @@ document.addEventListener(
     "click",
     (clickEvent) => {
         const itemClicked = clickEvent.target
-
+ 
         if (itemClicked.id.startsWith("pet")) {
             const [,petPrimaryKey] = itemClicked.id.split("--")
             for (const pet of pets) {
