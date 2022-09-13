@@ -1,4 +1,5 @@
 import { getPets } from "./database.js"
+import { getWalkers } from "./database.js"
 
 document.addEventListener(
     "click",
@@ -7,15 +8,24 @@ document.addEventListener(
  
         if (itemClicked.id.startsWith("pet")) {
             const [,petPrimaryKey] = itemClicked.id.split("--")
+            let matchingPet = null
             for (const pet of pets) {
                 if (pet.id === parseInt(petPrimaryKey)) {
-                    window.alert(`${pet.name} barks at you`)
+                    matchingPet = pet
                 }
             }
+            let matchingWalker = null
+             for (const walker of walkers){
+                if (matchingPet.walkerId  === walker.id){
+                    matchingWalker = walker
+                }
+             }
+            window.alert(`${matchingPet.name} is being walked by ${matchingWalker.name}`)
         }
     }
 )
 const pets = getPets()
+const walkers = getWalkers()
 
 export const RegisteredPets = () => {
     let petHTML = "<ul>"
