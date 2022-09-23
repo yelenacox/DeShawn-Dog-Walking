@@ -14,7 +14,7 @@ document.addEventListener(
                 if (walker.id === parseInt(walkerPrimaryKey)) {
                     const assignments = filterWalkerCitiesByWalker(walker)
                     const cities = assignedCityNames(assignments)
-                    window.alert(`${walker.name} services ${cities}`)
+                    window.alert(`${walker.name} services ${cities}.`)
                 }
             }
         }
